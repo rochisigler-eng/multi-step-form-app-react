@@ -1,1 +1,6 @@
-/*# sourceMappingURL=R01MultiStepFormApp.module.css.map */
+.formContainer {
+  background-color: #fff;
+  width: 80vw;
+  height: 90vh;
+  display: flex;
+}/*# sourceMappingURL=R01MultiStepFormApp.module.css.map */

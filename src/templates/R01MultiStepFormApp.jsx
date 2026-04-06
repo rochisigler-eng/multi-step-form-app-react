@@ -6,21 +6,23 @@ import StepFour from "../organisms/step-four/StepFour"
 import StepFive from "../organisms/step-five/StepFive"
 import StepButtons from "../organisms/step-buttons/StepButtons"
 import { useState } from 'react'
+import styles from './R01MultiStepFormApp.module.scss'
+
 
 const R01MultiStepFormApp = () => {
   const {stepDisplay, setStepDisplay} = useState('one')
 
   return (
-    <div>
-      <div>
+    <div className={styles.formContainer}>
+      <div className={styles.formPath}>
       <AllSteps />
       </div>
-      <div>
+      <div className={styles.StepInformation}>
       <StepOne />
-      <StepTwo />
+      {/* <StepTwo />
       <StepThree />
       <StepFour />
-      <StepFive />
+      <StepFive /> */}
       <StepButtons />
       </div>
     </div>

@@ -1,13 +1,13 @@
-import styles from './AllSteps.module.scss'
+import styles from './AllStepsSlider.module.scss'
 
-const AllSteps = ({data}) => {
+const AllStepsSlider = ({data}) => {
   return (
     <div className={styles.allSteps}>
       <ul className={styles.stepList}>
         {
           data.map((step)=>{
             return(
-            <li className={styles.listStep}>
+            <li className={styles.listStep} key={step.id}>
               <div className={styles.listNumber}>
                 {step.id+1}
               </div>
@@ -24,4 +24,4 @@ const AllSteps = ({data}) => {
   )
 }
 
-export default AllSteps
+export default AllStepsSlider

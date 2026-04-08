@@ -9,16 +9,19 @@ import Three from '../organisms/steps/variants/three/Three'
 import Four from '../organisms/steps/variants/four/Four'
 import Five from '../organisms/steps/variants/five/Five'
 
-const variants = {
-  0: <One />,
-  1: <Two />,
-  2: <Three />,
-  3: <Four />,
-  4: <Five />
-}
 
 const R01MultiStepFormApp = () => {
   const [currentStep, setCurrentStep] = useState(0)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    plan: "",
+    isMonthly: true,
+    isYearly: false,
+    addOns: []
+  })
+  console.log(formData)
 
   const data = [
     {
@@ -55,6 +58,14 @@ const R01MultiStepFormApp = () => {
     }
   ]
 
+  const variants = {
+    0: <One data={data} setFormData={setFormData} formData={formData} />,
+    1: <Two data={data} setFormData={setFormData} formData={formData} />,
+    2: <Three data={data} setFormData={setFormData} formData={formData} />,
+    3: <Four data={data} />,
+    4: <Five data={data} />
+  }
+
   return (
     <form className={styles.formContainer}>
       <div className={styles.formPath}>
@@ -63,11 +74,11 @@ const R01MultiStepFormApp = () => {
         />
       </div>
       <div className={styles.StepInformation}>
-        <Steps 
-        data={data} 
-        currentStep={currentStep}
-         />
-         {variants[currentStep]}
+        <Steps
+          data={data}
+          currentStep={currentStep}
+          variants={variants}
+        />
         <StepButtons
           setCurrentStep={setCurrentStep}
           currentStep={currentStep}

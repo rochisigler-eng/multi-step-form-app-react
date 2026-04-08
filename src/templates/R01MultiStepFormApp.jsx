@@ -3,11 +3,22 @@ import Steps from "../organisms/steps/Steps"
 import StepButtons from "../organisms/step-buttons/StepButtons"
 import { useState } from 'react'
 import styles from './R01MultiStepFormApp.module.scss'
+import One from '../organisms/steps/variants/one/One'
+import Two from '../organisms/steps/variants/two/Two'
+import Three from '../organisms/steps/variants/three/Three'
+import Four from '../organisms/steps/variants/four/Four'
+import Five from '../organisms/steps/variants/five/Five'
 
+const variants = {
+  0: <One />,
+  1: <Two />,
+  2: <Three />,
+  3: <Four />,
+  4: <Five />
+}
 
 const R01MultiStepFormApp = () => {
-  const [stepDisplay, setStepDisplay] = useState(0)
-  console.log(stepDisplay)
+  const [currentStep, setCurrentStep] = useState(0)
 
   const data = [
     {
@@ -52,10 +63,14 @@ const R01MultiStepFormApp = () => {
         />
       </div>
       <div className={styles.StepInformation}>
-        <Steps data={data} />
+        <Steps 
+        data={data} 
+        currentStep={currentStep}
+         />
+         {variants[currentStep]}
         <StepButtons
-          setStepDisplay={setStepDisplay}
-          stepDisplay={stepDisplay}
+          setCurrentStep={setCurrentStep}
+          currentStep={currentStep}
         />
       </div>
     </form>
